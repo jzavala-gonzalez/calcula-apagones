@@ -1,0 +1,11 @@
+calcula_apagones:
+  outputs:
+    dev:
+      type: duckdb
+      path: 'databases/calcula_apagones.db'
+      extensions:
+        - httpfs
+      attach:
+        - path: "{{ env_var('DBT_ENV_SECRET_ARCHIVA_APAGONES_URL')}}/databases/regions_without_service_cache.db"
+          read_only: true
+  target: dev
