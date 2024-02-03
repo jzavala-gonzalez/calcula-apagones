@@ -16,6 +16,7 @@ pivoteado_por_region as (
 
 unnested_region_info as (
     select
+        row_number() over (partition by marca_hora_presentada, region_struct.name order by marca_hora_accedida) as row_num,
         marca_hora_presentada,
         marca_hora_accedida,
         region_struct.name as region,
@@ -30,10 +31,16 @@ unnested_region_info as (
     -- order by marca_hora_presentada desc
 ),
 
+info_regiones_deduplicados as (
+    select * exclude (row_num)
+    from unnested_region_info
+    where row_num = 1
+),
+
 regiones_incluyendo_horas_no_accedidas as (
     select *
     from all_marca_hora_region_pairs
-    left join unnested_region_info
+    left join info_regiones_deduplicados
     using (marca_hora_presentada, region)
     order by marca_hora_presentada, region
 )
