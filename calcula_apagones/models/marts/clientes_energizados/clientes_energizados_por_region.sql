@@ -1,7 +1,8 @@
+{{ config(materialized='table') }}
 with all_marca_hora_region_pairs as (
-    from int_marca_hora_presentada_listado
+    from {{ ref('int_marca_hora_presentada_listado') }}
     cross join
-    int_regiones_listado
+    {{ ref('int_regiones_listado') }}
     order by marca_hora_presentada, region
 ),
 
@@ -10,7 +11,7 @@ pivoteado_por_region as (
         marca_hora_presentada,
         marca_hora_accedida,
         unnest(regiones) as region_struct,
-    from stg_archiva_apagones__capturas_regiones_sin_servicio
+    from {{ ref('stg_archiva_apagones__capturas_regiones_sin_servicio') }}
 ),
 
 unnested_region_info as (
