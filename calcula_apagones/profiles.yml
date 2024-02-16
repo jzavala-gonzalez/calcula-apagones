@@ -6,6 +6,6 @@ calcula_apagones:
       extensions:
         - httpfs
       attach:
-        - path: "{{ env_var('DBT_ENV_SECRET_ARCHIVA_APAGONES_URL')}}/databases/regions_without_service_cache.db"
+        - path: "https://numeros-luzpr.com/databases/regions_without_service_cache.db"
           read_only: true
   target: dev
