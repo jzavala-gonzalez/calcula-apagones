@@ -1,3 +1,4 @@
+{{ config(materialized='external', location='s3://publica-apagones/datasets/clientes_energizados.parquet', format='parquet') }}
 with unnested_clientes_info as (
      select
          row_number() over (partition by marca_hora_presentada order by marca_hora_accedida) as row_num,
