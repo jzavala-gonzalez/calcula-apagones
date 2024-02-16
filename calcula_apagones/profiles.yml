@@ -2,7 +2,7 @@ calcula_apagones:
   outputs:
     prod:
       type: duckdb
-      path: 'databases/calcula_apagones.db'
+      path: '/tmp/databases/calcula_apagones.db'
       extensions:
         - httpfs
       attach:
