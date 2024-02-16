@@ -1,6 +1,6 @@
 calcula_apagones:
   outputs:
-    dev:
+    prod:
       type: duckdb
       path: 'databases/calcula_apagones.db'
       extensions:
@@ -8,4 +8,4 @@ calcula_apagones:
       attach:
         - path: "https://numeros-luzpr.com/databases/regions_without_service_cache.db"
           read_only: true
-  target: dev
+  target: prod
