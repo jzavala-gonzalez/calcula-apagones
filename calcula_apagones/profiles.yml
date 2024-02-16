@@ -1,6 +1,7 @@
 calcula_apagones:
   outputs:
     prod:
+      threads: 4
       type: duckdb
       path: 'databases/calcula_apagones.db'
       extensions:
