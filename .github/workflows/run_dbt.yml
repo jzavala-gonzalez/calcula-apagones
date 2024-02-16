@@ -45,7 +45,8 @@ jobs:
 
     - name: dbt build
       run: |
-        cd calcula_apagones 
+        cd calcula_apagones
+        mkdir databases
         dbt build --target prod
         dbt snapshot --target prod
 
