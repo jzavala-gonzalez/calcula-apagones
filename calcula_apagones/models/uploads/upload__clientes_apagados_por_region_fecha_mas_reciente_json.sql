@@ -1,0 +1,2 @@
+{{ config(materialized='external', location='s3://publica-apagones/datasets/clientes_apagados_por_region_fecha_mas_reciente.json', format='json') }}
+from {{ ref('clientes_apagados_por_region_fecha_mas_reciente_json') }}

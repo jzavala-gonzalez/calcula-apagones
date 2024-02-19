@@ -1,4 +1,3 @@
-{{ config(materialized='external', location='s3://publica-apagones/datasets/clientes_energizados_por_region.parquet', format='parquet') }}
 with all_marca_hora_region_pairs as (
     from {{ ref('int_marca_hora_presentada_listado') }}
     cross join
