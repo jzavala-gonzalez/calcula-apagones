@@ -32,7 +32,8 @@ jobs:
         
       - name: dbt build
         run: |
-          cd calcula_apagones 
+          cd calcula_apagones
+          mkdir databases 
           if [ -f "prev_run_state/manifest.json" ]; then
             dbt build --full-refresh --fail-fast --select state:modified+ --state prev_run_state
             dbt docs generate
