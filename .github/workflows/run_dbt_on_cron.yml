@@ -3,6 +3,7 @@ name: Scheduled dbt run - prod
 on:
   schedule:
     - cron: "10 10 * * *"
+  workflow_dispatch:
         
 jobs:
   dbt_scheduled_run:
