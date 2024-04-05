@@ -37,3 +37,17 @@ If using GH Pages, the only manual configuration required for hosting your dbt d
 # Acknowledgements & Notes
 
 Thank you to [dwreeves](https://github.com/dwreeves) for both highlighting an issue with initial deployment with regard to public s3 buckets as well as providing the [template for deploying to github pages](https://github.com/dwreeves/dbt_docs_ghpages_example).
+
+## actual readme
+
+How to run without uploading to S3:
+
+```bash
+dbt run --exclude "uploads"
+```
+
+Running un solo modelo:
+
+```bash
+dbt run --select clientes_energizados
+```
