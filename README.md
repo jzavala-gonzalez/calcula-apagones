@@ -45,3 +45,9 @@ How to run without uploading to S3:
 ```bash
 dbt run --exclude "uploads"
 ```
+
+Running un solo modelo:
+
+```bash
+dbt run --select clientes_energizados
+```
